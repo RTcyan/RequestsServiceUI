@@ -26,7 +26,7 @@ export class DataService extends HttpBase {
       path = '/' + path;
     }
     const url = `${this.host}${path}`;
-    let request = { body, headers, params: queryParams, withCredentials: true };
+    let request: Object = { body, headers, params: queryParams, withCredentials: true };
     if (responseEntity) {
       request['observe'] = 'response';
     }

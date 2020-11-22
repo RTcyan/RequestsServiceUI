@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { tap } from 'rxjs/operators';
 
 export class Config {
-  public host: string;
+  public host!: string;
 }
 
 @Injectable()
