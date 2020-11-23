@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
-import { CoreModule } from '@core/core.module';
-import { ModelModule } from '@model/model.module';
+import { CoreModule } from '../core-module/core.module';
+import { ModelModule } from '../model-module/model.module';
 
 /**
  * Module, 

@@ -11,7 +11,7 @@ import { MatMomentDateModule, MAT_MOMENT_DATE_FORMATS } from '@angular/material-
  */
 
 const COMPONENTS: any[] = [
-  ``
+  
 ]
 
 @NgModule({

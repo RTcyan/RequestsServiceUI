@@ -15,19 +15,11 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "es2015",
-    "module": "es2020",
+    "module": "amd",
     "lib": [
       "es2018",
       "dom"
     ],
-    "paths": {
-      "@core/*": ["app/core-module/*"],
-      "@dao/*": ["app/dao-module/*"],
-      "@security/*": ["app/security-module/*"],
-      "@layout/*": ["app/layout-module/*"],
-      "@shared/*": ["app/shared-module/*"],
-      "@model/*": ["app/model-module/*"],
-    },
   },
   "angularCompilerOptions": {
     "strictInjectionParameters": true,
