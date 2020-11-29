@@ -8,6 +8,8 @@ import { LayoutModule } from './layout-module/layout.module';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routing';
 import { SharedModule } from './shared-module/shared.module';
+import { SecurityModule } from './security-module/security.module';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
   declarations: [
@@ -15,11 +17,13 @@ import { SharedModule } from './shared-module/shared.module';
   ],
   imports: [
     RouterModule.forRoot(appRoutes),
+    NgxPermissionsModule.forRoot(),
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     LayoutModule,
     SharedModule,
+    SecurityModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

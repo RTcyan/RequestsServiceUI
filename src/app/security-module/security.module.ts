@@ -4,20 +4,26 @@ import { NoAuthenticationGuard } from './guard/no-authentication.guard';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SecurityContextHolderInterceptor } from './interceptor/security-context-holder-interceptor';
 import { CookieService } from 'ngx-cookie-service';
-import { ModelModule } from '../model-module/model.module';
 import { DaoModule } from '../dao-module/dao.module';
+import { JwtTokenRequestInterceptor } from './interceptor/jwt-token-request.interceptor';
+import { JwtTokenResponseInterceptor } from './interceptor/jwt-token-response.interceptor';
+import { UnauthorizedInterceptor } from './interceptor/unauthorized-interceptor';
+import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
   declarations: [],
   providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: JwtTokenRequestInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: JwtTokenResponseInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: SecurityContextHolderInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: UnauthorizedInterceptor, multi: true },
     FullAuthenticationGuard,
     NoAuthenticationGuard,
     CookieService,
   ],
   imports: [
-    ModelModule,
-    DaoModule
+    DaoModule,
+    NgxPermissionsModule.forChild(),
   ]
 })
 export class SecurityModule {

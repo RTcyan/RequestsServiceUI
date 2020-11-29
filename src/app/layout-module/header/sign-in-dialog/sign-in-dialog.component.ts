@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
 
+export interface SignInDialogComponentData {
+  login: string;
+  password: string;
+}
+
 @Component({
   selector: 'app-sign-in-dialog',
   templateUrl: './sign-in-dialog.component.html',
@@ -21,6 +26,7 @@ export class SignInDialogComponent implements OnInit {
   }
 
   public onEnterButtonClick() {
-    
+    const data: SignInDialogComponentData = this.signInForm.value as SignInDialogComponentData
+    this.dialogRef.close(data);
   }
 }

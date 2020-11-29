@@ -2,7 +2,7 @@ import { Injector } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { HttpRequestParams, RequestType } from './http.interface';
-import { ConfigLoader } from '@core/config/config-loader';
+import { ConfigLoader } from '../config/config-loader';
 
 
 

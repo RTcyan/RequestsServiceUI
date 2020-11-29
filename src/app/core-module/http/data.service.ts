@@ -1,7 +1,7 @@
 import { Injectable, Injector } from '@angular/core';
 import { Observable } from 'rxjs';
+import { ConfigLoader } from '../config/config-loader';
 import { HttpBase } from './http-base.service';
-import { ConfigLoader } from '@core/config/config-loader';
 import { HttpRequestParams } from './http.interface';
 
 
