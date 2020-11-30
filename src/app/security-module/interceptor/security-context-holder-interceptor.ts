@@ -1,18 +1,14 @@
-import { Injectable } from '@angular/core';
 import {
-  HttpInterceptor,
-  HttpResponse,
-  HttpRequest,
-  HttpHandler,
-  HttpEvent,
-  HttpErrorResponse,
+  HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor,
+  HttpRequest, HttpResponse
 } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { tap, catchError } from 'rxjs/operators';
-import { SecurityContextHolder } from '../context/security-context-holder';
+import { Injectable } from '@angular/core';
 import { AuthUser } from 'app/model-module/model/auth-user/AuthUser';
+import { Observable, throwError } from 'rxjs';
+import { catchError, tap } from 'rxjs/operators';
+import { SecurityContextHolder } from '../context/security-context-holder';
 
-const AUTH_URL = '/rgf-efgi-gateway/auth';
+const AUTH_URL = '/api/user/current';
 
 @Injectable()
 export class SecurityContextHolderInterceptor implements HttpInterceptor {
@@ -22,7 +18,7 @@ export class SecurityContextHolderInterceptor implements HttpInterceptor {
   private handle(response: HttpResponse<AuthUser>): void {
     const currentUser = this.securityContextHolder.user.getValue();
     const interceptUser = response.body;
-    if (!currentUser || currentUser.username !== interceptUser.username) {
+    if (!currentUser || currentUser.id !== interceptUser.id) {
       this.securityContextHolder.user.next(response.body);
     }
   }

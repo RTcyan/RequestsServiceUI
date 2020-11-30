@@ -30,7 +30,7 @@ export class DataService extends HttpBase {
     if (responseEntity) {
       request['observe'] = 'response';
     }
-    return this.http.request<T>(method, url, request);
+    return this.http.request<T>(method, url, request) as Observable<any>;
   }
 
 }

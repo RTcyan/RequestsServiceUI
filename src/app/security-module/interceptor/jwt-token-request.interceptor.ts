@@ -8,19 +8,20 @@ import {
 import { Observable } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 
+const JWT_NAME = "jwt_token" 
+
 @Injectable()
 export class JwtTokenRequestInterceptor implements HttpInterceptor {
   public constructor(private cookieService: CookieService) {
   }
 
   public intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
-    console.log(request);
-    if (this.cookieService.check('jwt_token')) {
-      localStorage.setItem('jwt_token', this.cookieService.get('jwt_token'));
-      this.cookieService.deleteAll('jwt_token');
+    if (this.cookieService.check(JWT_NAME)) {
+      localStorage.setItem(JWT_NAME, this.cookieService.get(JWT_NAME));
+      this.cookieService.deleteAll(JWT_NAME);
     }
     let requestWithAuth = request;
-    const token = localStorage.getItem('jwt_token');
+    const token = localStorage.getItem(JWT_NAME);
     if (token && token.length > 0) {
       requestWithAuth = request.clone({
         setHeaders: {

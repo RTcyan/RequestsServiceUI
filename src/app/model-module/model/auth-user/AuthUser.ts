@@ -1,9 +1,19 @@
+import { AuthEmployee } from './AuthEmployee';
+
 export interface AuthUser {
-    username: string;
-    nickname: string;
+    accessFailedCount: number;
+    concurrencyStamp: string;
     email: string;
-    phone: string;
-    roles: string[];
-    meta?: { [key: string]: unknown; favorites?: string[] };
-  }
-  
+    emailConfirmed: boolean;
+    employee: AuthEmployee;
+    id: number;
+    lockoutEnabled: boolean
+    normalizedEmail: string;
+    normalizedUserName: string;
+    passwordHash: string;
+    phoneNumber: string;
+    phoneNumberConfirmed: boolean;
+    securityStamp: string;
+    twoFactorEnabled: boolean;
+    userName: string;
+}

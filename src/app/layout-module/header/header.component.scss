@@ -16,4 +16,12 @@
             cursor: pointer;
         }
     }
+
+    &-user {
+        color: #fff;
+
+        &__logout {
+            cursor: pointer;
+        }
+    }
 }

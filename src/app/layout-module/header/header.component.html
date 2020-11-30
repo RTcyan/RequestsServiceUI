@@ -1,6 +1,20 @@
 <header class="header">
     <div class="header-logo">RequestService</div>
-    <div class="header-login" (click)="onLoginButtonClick()">
-        Войти
-    </div>
+
+    <ng-container *ngIf="!currentEmployee">
+        <div class="header-login" (click)="onLoginButtonClick()">
+            Войти
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="currentEmployee">
+        <div class="header-user">
+            <div class="header-user__name">
+                {{currentEmployee.firstName + " " +currentEmployee.surname}}
+            </div>
+            <div class="header-user__logout" (click)="onLogoutButtonClick()">
+                Выйти
+            </div>
+        </div>
+    </ng-container>
 </header>

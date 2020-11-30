@@ -12,8 +12,8 @@ import { Observable, of, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
-const AUTH_URL = '/rgf-efgi-gateway/auth';
-const SIGNIN_URL = '/rgf-efgi-gateway/signin';
+const AUTH_URL = '/api/user/current';
+const SIGNIN_URL = '/api/user/signin';
 @Injectable()
 export class UnauthorizedInterceptor implements HttpInterceptor {
   public constructor(private router: Router) {

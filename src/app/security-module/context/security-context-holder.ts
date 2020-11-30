@@ -11,9 +11,9 @@ export class SecurityContextHolder implements OnDestroy {
 
   public constructor(permissionsService: NgxPermissionsService) {
     this.subscriptions.add(this.user.asObservable().subscribe((user) => {
-      if (user) {
-        permissionsService.loadPermissions(user.roles);
-      }
+      // if (user) {
+      //   permissionsService.loadPermissions(user.roles);
+      // }
     }));
   }
 

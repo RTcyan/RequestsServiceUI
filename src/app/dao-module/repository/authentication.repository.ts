@@ -4,13 +4,15 @@ import { Router } from '@angular/router';
 import { DataService } from 'app/core-module/http/data.service';
 import { AuthUser } from 'app/model-module/model/auth-user/AuthUser';
 import { Observable, throwError } from 'rxjs';
-import { catchError, mergeMap } from 'rxjs/operators';
+import { catchError, mergeMap, tap } from 'rxjs/operators';
 
 export enum Api {
   AUTH = '/api/user/current',
   SIGN_IN = '/api/user/signin',
 }
 
+
+const JWT_NAME = "jwt_token";
 const FORM_URLENCODED_HEADERS = new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded');
 
 @Injectable({ providedIn: "root" })
@@ -35,14 +37,15 @@ export class AuthenticationRepository {
   }
 
   public logout(): void {
-    localStorage.removeItem('jwt_token');
+    localStorage.removeItem(JWT_NAME);
     this.router.navigate(['/logout']);
   }
 
   public auth(): Observable<AuthUser> {
     return this.dataService.get<AuthUser>(Api.AUTH).pipe(
+      tap(it => console.log(it)),
       catchError((e) => {
-        localStorage.removeItem('jwt_token');
+        localStorage.removeItem(JWT_NAME);
         return throwError(e);
       }),
     );

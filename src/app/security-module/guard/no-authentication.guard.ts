@@ -8,18 +8,18 @@ import { map, catchError } from 'rxjs/operators';
 export class NoAuthenticationGuard implements CanActivate {
 
   constructor(private authenticationRepository: AuthenticationRepository) { }
-  
+
   canActivate(
     next: ActivatedRouteSnapshot,
-    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean 
-  {
+    state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     return this.authenticationRepository.auth().pipe(
-        map(() => {
-            return true;
-        }), catchError(() => {
-            return of(true);
-        })
+      map(() => {
+        return true;
+      }), 
+      catchError(() => {
+        return of(true);
+      })
     ).toPromise();
   }
-    
+
 }

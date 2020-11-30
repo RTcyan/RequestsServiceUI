@@ -19,9 +19,7 @@ import {
     public intercept(req: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
       return next.handle(req).pipe(
         tap((resp) => {
-          if (resp instanceof HttpResponse) {
-            console.log(resp);
-            
+          if (resp instanceof HttpResponse) {        
             const authorization = resp.headers.get(AUTHORIZATION_HEADER);
             if (
               authorization && authorization.length > 0
