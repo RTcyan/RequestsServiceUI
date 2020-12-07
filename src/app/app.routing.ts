@@ -12,7 +12,11 @@ export const appRoutes: Routes = [
         redirectTo: '',
         canActivate: [FullAuthenticationGuard],
       },
-  
+      {
+        path: 'requests',
+        loadChildren: (): Promise<unknown> => import('./requests-module/requests.module').then((m) => m.RequestsModule),
+        canActivate: [FullAuthenticationGuard],
+      },
     ]
   }
 ]

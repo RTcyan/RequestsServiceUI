@@ -43,7 +43,6 @@ export class AuthenticationRepository {
 
   public auth(): Observable<AuthUser> {
     return this.dataService.get<AuthUser>(Api.AUTH).pipe(
-      tap(it => console.log(it)),
       catchError((e) => {
         localStorage.removeItem(JWT_NAME);
         return throwError(e);
