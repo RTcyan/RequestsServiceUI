@@ -2,8 +2,13 @@
     <div class="header-logo">RequestService</div>
 
     <ng-container *ngIf="!currentEmployee">
-        <div class="header-login" (click)="onLoginButtonClick()">
-            Войти
+        <div class="header-actions">
+            <div class="header-login" (click)="onLoginButtonClick()">
+                Войти
+            </div>
+            <div class="header-sign-up" (click)="onSignUpButtonClick()">
+                Регистрация
+            </div>
         </div>
     </ng-container>
 

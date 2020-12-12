@@ -5,6 +5,7 @@ import { DaoModule } from 'app/dao-module/dao.module';
 import { SharedModule } from '../shared-module/shared.module';
 import { HeaderComponent } from './header/header.component';
 import { SignInDialogComponent } from './header/sign-in-dialog/sign-in-dialog.component';
+import { SignUpDialogComponent } from './header/sign-up-dialog/sign-up-dialog.component';
 
 /**
  * Module, 
@@ -14,6 +15,7 @@ import { SignInDialogComponent } from './header/sign-in-dialog/sign-in-dialog.co
 const COMPONENTS = [
   HeaderComponent,
   SignInDialogComponent,
+  SignUpDialogComponent,
 ]
 
 @NgModule({
@@ -26,7 +28,7 @@ const COMPONENTS = [
   providers: [
   ],
   entryComponents: [
-    SignInDialogComponent,
+    ...COMPONENTS,
   ],
   imports: [
     SharedModule,

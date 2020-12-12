@@ -4,12 +4,14 @@
  */
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { MatButtonModule, MatCheckboxModule, MatDialogModule, MatInputModule } from '@angular/material';
+import { MatButtonModule, MatCheckboxModule, MatDatepickerModule, MatDialogModule, MatInputModule, MatSelectModule } from '@angular/material';
 
 const MATERIAL_CONTROLS = [
   MatInputModule,
   MatCheckboxModule,
   MatButtonModule,
+  MatDatepickerModule,
+  MatSelectModule,
 ]
 
 const MODULES = [
