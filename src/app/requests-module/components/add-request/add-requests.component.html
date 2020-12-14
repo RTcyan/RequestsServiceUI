@@ -1,1 +1,40 @@
 <h2>Добавить новый пост</h2>
+
+<form [formGroup]="addRequestForm" class="form">
+
+    <div class="flex-column-container">
+
+        <mat-form-field>
+            <mat-label>Тип справки</mat-label>
+            <mat-select formControlName="typeId">
+                <mat-option *ngFor="let requestType of requestTypes" [value]="requestType.id">
+                {{ requestType.name }}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    
+        <mat-form-field>
+            <input 
+                matInput
+                type="text"
+                formControlName="reason"
+                placeholder="Причина">
+        </mat-form-field>
+    
+        <mat-form-field>
+            <textarea 
+                matInput
+                type="text"
+                formControlName="userComment"
+                placeholder="Комментарий">
+             </textarea>
+        </mat-form-field>
+    
+        <button mat-button 
+            [disabled]="!addRequestForm.valid" 
+            (click)="onEnterButtonClick()">Зарегистрироваться</button>
+            
+    </div>
+
+</form>
+

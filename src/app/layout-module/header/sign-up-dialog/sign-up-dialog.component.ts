@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
 import { FacultyRepository } from 'app/dao-module/repository/faculties.repository';
-import { Faculty } from 'app/model-module/model/user/faculty';
+import { Faculty } from 'app/model-module/model/faculty/faculty';
 import { SignUpUser } from 'app/model-module/model/user/sign-up-user';
 import { CustomValidator } from './CustomValidator';
 

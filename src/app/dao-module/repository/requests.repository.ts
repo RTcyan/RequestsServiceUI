@@ -20,7 +20,12 @@ export class RequestRepository {
    * Returns faculties
    */
   public getCurrentRequests(): Observable<UserRequest[]> { 
-    const uri = `${Api.REQUEST_RESOURCE}`;
+    const uri = `${Api.REQUEST_RESOURCE}/current`;
     return this.dataService.get<UserRequest[]>(uri);
+  }
+
+  public addNewRequest(request: UserRequest): Observable<any> {
+    const uri = `${Api.REQUEST_RESOURCE}/add`;
+    return this.dataService.post(uri, request)
   }
 }
