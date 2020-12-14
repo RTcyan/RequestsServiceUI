@@ -15,6 +15,9 @@ const COMPONENTS = [
   declarations: [
     ...COMPONENTS,
   ],
+  entryComponents: [
+    ...COMPONENTS,
+  ],
   exports: [
     ...COMPONENTS,
   ],
@@ -23,7 +26,7 @@ const COMPONENTS = [
   imports: [
     RouterModule.forChild(routes),
     SharedModule,
-    CommonModule,
+    RouterModule,
   ]
 })
 export class RequestsModule {

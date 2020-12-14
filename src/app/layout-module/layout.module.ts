@@ -1,6 +1,7 @@
 
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { DaoModule } from 'app/dao-module/dao.module';
 import { SharedModule } from '../shared-module/shared.module';
 import { HeaderComponent } from './header/header.component';
@@ -33,7 +34,7 @@ const COMPONENTS = [
   imports: [
     SharedModule,
     DaoModule,
-    CommonModule,
+    RouterModule,
   ]
 })
 export class LayoutModule {

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { DataService } from 'app/core-module/http/data.service';
-import { Faculty } from 'app/model-module/model/user/faculty';
 import { SignUpUser } from 'app/model-module/model/user/sign-up-user';
 import { Observable } from 'rxjs';
 

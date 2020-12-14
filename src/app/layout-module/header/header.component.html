@@ -1,5 +1,9 @@
 <header class="header">
-    <div class="header-logo">RequestService</div>
+    <div class="header-logo" [routerLink]="['/']">RequestService</div>
+
+    <ng-container *ngIf="currentEmployee">
+        <button mat-stroked-button [routerLink]="['requests']">Мои запросы</button>
+    </ng-container>
 
     <ng-container *ngIf="!currentEmployee">
         <div class="header-actions">

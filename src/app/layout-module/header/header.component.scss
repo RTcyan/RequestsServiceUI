@@ -4,28 +4,29 @@
     background-color: #f27111;
     padding: 20px;
     justify-content: space-between;
+    color: white;
 
     &-logo {
-        color: white;
         font-size: 1.6em;
+        outline: none;
+        &:hover {
+            cursor: pointer;
+        }
     }
 
     &-login {
-        color: #fff;
         &:hover {
             cursor: pointer;
         }
     }
 
     &-sign-up {
-        color: #fff;
         &:hover {
             cursor: pointer;
         }
     }
 
     &-user {
-        color: #fff;
 
         &__logout {
             cursor: pointer;

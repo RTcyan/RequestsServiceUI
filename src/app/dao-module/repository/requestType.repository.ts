@@ -1,25 +1,25 @@
 import { Injectable } from '@angular/core';
 import { DataService } from 'app/core-module/http/data.service';
-import { Faculty } from 'app/model-module/model/faculty/faculty';
+import { RequestType } from 'app/model-module/model/requestType/request-type';
 import { Observable } from 'rxjs';
 
 export enum Api {
-  FACULTIES_RESOURCE = '/api/faculty'
+  REQUEST_TYPE_RESOURCE = '/api/requestType'
 }
 
 /**
  * Provides resources for working with faculties
  */
 @Injectable({ providedIn: "root" })
-export class FacultyRepository {
+export class RequestTypeRepository {
 
   constructor(private dataService: DataService) { }
 
   /**
    * Returns faculties
    */
-  public getFaculties(): Observable<Faculty[]> { 
-    const uri = `${Api.FACULTIES_RESOURCE}`;
-    return this.dataService.get<Faculty[]>(uri);
+  public getRequestTypes(): Observable<RequestType[]> { 
+    const uri = `${Api.REQUEST_TYPE_RESOURCE}`;
+    return this.dataService.get<RequestType[]>(uri);
   }
 }

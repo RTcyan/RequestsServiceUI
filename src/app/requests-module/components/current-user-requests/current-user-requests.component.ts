@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { CurrentUserRequestsData } from './current-user-requests.resolver';
 
 @Component({
   selector: 'app-current-user-requests',
@@ -8,15 +10,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class CurrentUserRequestsComponent implements OnInit {
 
-  public constructor(
-    private router: Router,
-    private route: ActivatedRoute) { }
+  private subscription = new Subscription();
 
-  public ngOnInit() {
+  constructor(private route: ActivatedRoute) { }
+
+  ngOnInit() {
+    this.subscription.add(this.route.data.subscribe((routeData) => {
+      const pageData = routeData.data as CurrentUserRequestsData;
+      console.log(pageData);
+      
+    }));
+
   }
 
-  public onRequestAddButtonClick() {
-    this.router.navigate(['add'], {relativeTo: this.route})
-  }
 
 }
