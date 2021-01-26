@@ -40,17 +40,20 @@ export class HeaderComponent implements OnInit {
   public onLoginButtonClick() {
     const dialogRef = this.dialog.open<SignInDialogComponent>(SignInDialogComponent);
     dialogRef.afterClosed().subscribe((data: SignInDialogComponentData) => {
-      this.authRepository.signin(data.login, data.password).subscribe((it) => {
-      });
+      if (data) {
+        this.authRepository.signIn(data.login, data.password).subscribe((it) => {
+        });
+      }
     });
   }
 
   public onSignUpButtonClick() {
     const dialogRef = this.dialog.open<SignUpDialogComponent>(SignUpDialogComponent);
     dialogRef.afterClosed().subscribe((userModel: SignUpUser) => {
-      this.userRepository.signUp(userModel).subscribe(() => {
-        console.log('hello');
-      })
+      if (userModel) {
+        this.userRepository.signUp(userModel).subscribe(() => {
+        })
+      } 
     });
     
   }

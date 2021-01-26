@@ -2,16 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { RequestStatus } from 'app/model-module/model/request/request-status';
 import { UserRequest } from 'app/model-module/model/request/user-request';
-import { RequestType } from 'app/model-module/model/requestType/request-type';
 import { Subscription } from 'rxjs';
-import { CurrentUserRequestsData } from './current-user-requests.resolver';
+import { OperatorRequestsData } from './operator-requests.resolver';
 
 @Component({
-  selector: 'app-current-user-requests',
-  templateUrl: './current-user-requests.component.html',
-  styleUrls: ['./current-user-requests.component.scss']
+  selector: 'app-operator-requests',
+  templateUrl: './operator-requests.component.html',
+  styleUrls: ['./operator-requests.component.scss']
 })
-export class CurrentUserRequestsComponent implements OnInit {
+export class OperatorRequestsComponent implements OnInit {
 
   private subscription = new Subscription();
 
@@ -21,8 +20,10 @@ export class CurrentUserRequestsComponent implements OnInit {
 
   public ngOnInit(): void {
     this.subscription.add(this.route.data.subscribe((routeData) => {
-      const pageData = routeData.data as CurrentUserRequestsData;
+      const pageData = routeData.data as OperatorRequestsData;
       this.requests = pageData.userRequests;
+      console.log(this.requests);
+      
     }));
   }
 

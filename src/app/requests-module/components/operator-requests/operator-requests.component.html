@@ -1,7 +1,4 @@
-<h2>Ваши запросы:</h2>
-<button mat-raised-button 
-    [routerLink]="['/requests/add']"
-    >Добавить запрос</button>
+<h2>Запросы пользователей:</h2>
 
 <div class="requests-not-found" *ngIf="!requests.length">Запросов не найдено</div>
 
@@ -11,6 +8,9 @@
             *ngFor="let request of requests"
             [routerLink]="[request.id]"
             class="request">
+            <div class="name">
+                {{ request.student.employee.surname + ' ' + request.student.employee.firstName }}
+            </div>
             <div class="type">
                 {{ request.type.name  }}
             </div>

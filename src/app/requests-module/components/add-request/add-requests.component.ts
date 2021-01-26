@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { RequestRepository } from 'app/dao-module/repository/requests.repository';
-import { UserRequest } from 'app/model-module/model/request/user-request';
+import { NewUserRequest } from 'app/model-module/model/request/new-user-request';
 import { RequestType } from 'app/model-module/model/requestType/request-type';
 import { Subscription } from 'rxjs';
 import { AddRequestsData } from './add-requests.resolver';
@@ -27,7 +27,7 @@ export class AddRequestsComponent implements OnInit {
   public addRequestForm = this.fb.group({
     typeId: ['', Validators.required],
     reason: ['', Validators.required],
-    userComment: ['']
+    userComment: [''],
   });
 
   public ngOnInit() {
@@ -42,9 +42,9 @@ export class AddRequestsComponent implements OnInit {
   public onEnterButtonClick() {
     let data = { reason: this.addRequestForm.controls['reason'].value }
 
-    let request: UserRequest = {
+    let request: NewUserRequest = {
       typeId: this.addRequestForm.controls['typeId'].value,
-      userComment: this.addRequestForm.controls['typeId'].value,
+      userComment: this.addRequestForm.controls['userComment'].value,
       data: JSON.stringify(data),
     }
 

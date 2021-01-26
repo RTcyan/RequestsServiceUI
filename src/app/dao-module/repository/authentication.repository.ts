@@ -22,7 +22,7 @@ export class AuthenticationRepository {
     private dataService: DataService,
     private router: Router) { }
 
-  public signin(username: string, password: string): Observable<AuthUser> {
+  public signIn(username: string, password: string): Observable<AuthUser> {
     const httpParams = new HttpParams()
       .set('Login', username)
       .set('Password', password);

@@ -2,7 +2,8 @@
     <div class="header-logo" [routerLink]="['/']">RequestService</div>
 
     <ng-container *ngIf="currentEmployee">
-        <button mat-stroked-button [routerLink]="['requests']">Мои запросы</button>
+        <button mat-stroked-button *ngIf="currentEmployee.student" [routerLink]="['requests']">Мои запросы</button>
+        <button mat-stroked-button *ngIf="currentEmployee.operator" [routerLink]="['requests','operator']">Запросы</button>
     </ng-container>
 
     <ng-container *ngIf="!currentEmployee">

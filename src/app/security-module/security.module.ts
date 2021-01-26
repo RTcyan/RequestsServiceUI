@@ -9,6 +9,8 @@ import { JwtTokenRequestInterceptor } from './interceptor/jwt-token-request.inte
 import { JwtTokenResponseInterceptor } from './interceptor/jwt-token-response.interceptor';
 import { UnauthorizedInterceptor } from './interceptor/unauthorized-interceptor';
 import { NgxPermissionsModule } from 'ngx-permissions';
+import { StudentAuthenticationGuard } from './guard/student-authentication.guard';
+import { OperatorAuthenticationGuard } from './guard/operator-authentication.guard';
 
 @NgModule({
   declarations: [],
@@ -18,6 +20,8 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     { provide: HTTP_INTERCEPTORS, useClass: SecurityContextHolderInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: UnauthorizedInterceptor, multi: true },
     FullAuthenticationGuard,
+    StudentAuthenticationGuard,
+    OperatorAuthenticationGuard,
     NoAuthenticationGuard,
     CookieService,
   ],
