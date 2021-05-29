@@ -2,8 +2,6 @@ import { Component, DoCheck, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { AuthenticationRepository } from 'app/dao-module/repository/authentication.repository';
 import { UserRepository } from 'app/dao-module/repository/user.repository';
-import { AuthEmployee } from 'app/model-module/model/auth-user/AuthEmployee';
-import { AuthUser } from 'app/model-module/model/auth-user/AuthUser';
 import { SignUpUser } from 'app/model-module/model/user/sign-up-user';
 import { SecurityContextHolder } from 'app/security-module/context/security-context-holder';
 import { SignInDialogComponent, SignInDialogComponentData } from './sign-in-dialog/sign-in-dialog.component';
@@ -23,14 +21,8 @@ export class HeaderComponent implements OnInit {
     public context: SecurityContextHolder,
   ) { }
 
-    public currentEmployee: AuthEmployee;
     
   ngOnInit() {
-    this.context.user.subscribe((user: AuthUser) => {
-      if(user) {
-        this.currentEmployee = user.employee;
-      }
-    })
   }
 
   public onLogoutButtonClick() {

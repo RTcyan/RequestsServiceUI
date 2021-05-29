@@ -3,7 +3,6 @@ import {
   HttpRequest, HttpResponse
 } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { AuthUser } from 'app/model-module/model/auth-user/AuthUser';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { SecurityContextHolder } from '../context/security-context-holder';
@@ -15,7 +14,7 @@ export class SecurityContextHolderInterceptor implements HttpInterceptor {
   public constructor(private securityContextHolder: SecurityContextHolder) {
   }
 
-  private handle(response: HttpResponse<AuthUser>): void {
+  private handle(response: HttpResponse<{id: number}>): void {
     const currentUser = this.securityContextHolder.user.getValue();
     const interceptUser = response.body;
     if (!currentUser || currentUser.id !== interceptUser.id) {

@@ -2,7 +2,6 @@ import { HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from 'app/core-module/http/data.service';
-import { AuthUser } from 'app/model-module/model/auth-user/AuthUser';
 import { Observable, throwError } from 'rxjs';
 import { catchError, mergeMap, tap } from 'rxjs/operators';
 
@@ -22,12 +21,12 @@ export class AuthenticationRepository {
     private dataService: DataService,
     private router: Router) { }
 
-  public signIn(username: string, password: string): Observable<AuthUser> {
+  public signIn(username: string, password: string): Observable<unknown> {
     const httpParams = new HttpParams()
       .set('Login', username)
       .set('Password', password);
 
-    return this.dataService.post<AuthUser>(
+    return this.dataService.post<unknown>(
       Api.SIGN_IN,
       {Login: username, Password: password},
       FORM_URLENCODED_HEADERS,
@@ -41,14 +40,12 @@ export class AuthenticationRepository {
     this.router.navigate(['/logout']);
   }
 
-  public auth(): Observable<AuthUser> {
-    return this.dataService.get<AuthUser>(Api.AUTH).pipe(
+  public auth(): Observable<unknown> {
+    return this.dataService.get<unknown>(Api.AUTH).pipe(
       catchError((e) => {
         localStorage.removeItem(JWT_NAME);
         return throwError(e);
       }),
     );
   }
-
-
 }

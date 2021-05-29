@@ -6,6 +6,7 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule, MatCheckboxModule, MatDatepickerModule, MatDialogModule, MatInputModule, MatSelectModule } from '@angular/material';
+import { MapComponent } from './components/map/map.component';
 
 const MATERIAL_CONTROLS = [
   MatInputModule,
@@ -13,6 +14,10 @@ const MATERIAL_CONTROLS = [
   MatButtonModule,
   MatDatepickerModule,
   MatSelectModule,
+]
+
+const COMPONENTS = [
+  MapComponent
 ]
 
 const MODULES = [
@@ -23,9 +28,10 @@ const MODULES = [
 
 @NgModule({
   declarations: [
-
+    ...COMPONENTS,
   ],
   exports: [
+    ...COMPONENTS,
     ...MODULES,
     ...MATERIAL_CONTROLS,
   ],

@@ -1,13 +1,12 @@
 import { BehaviorSubject, Subscription } from 'rxjs';
 import { Injectable, OnDestroy } from '@angular/core';
 import { NgxPermissionsService } from 'ngx-permissions';
-import { AuthUser } from 'app/model-module/model/auth-user/AuthUser';
 
 @Injectable({ providedIn: 'root' })
 export class SecurityContextHolder implements OnDestroy {
   private subscriptions: Subscription = new Subscription();
 
-  public user: BehaviorSubject<AuthUser> = new BehaviorSubject(null);
+  public user: BehaviorSubject<{id: number}> = new BehaviorSubject(null);
 
   public constructor(permissionsService: NgxPermissionsService) {
     this.subscriptions.add(this.user.asObservable().subscribe((user) => {
