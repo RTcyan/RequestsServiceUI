@@ -11,8 +11,12 @@ export const appRoutes: Routes = [
         redirectTo: '',
       },
       {
-        path: 'admin',
-        loadChildren: (): Promise<unknown> => import('./admin-module/admin.module').then((m) => m.RequestsModule),
+        path: 'routes',
+        loadChildren: (): Promise<unknown> => import('./routes-module/routes.module').then((m) => m.RequestsModule),
+      },
+      {
+        path: 'users',
+        loadChildren: (): Promise<unknown> => import('./users-module/users.module').then((m) => m.UsersModule)
       },
       {
         path: 'access-denied',

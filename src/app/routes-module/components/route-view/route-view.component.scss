@@ -1,0 +1,102 @@
+.content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+h2 {
+    padding: 0;
+    margin: 0;
+}
+
+h3 {
+    padding: 0;
+    margin: 0;
+}
+
+.value {
+    margin-bottom: 20px;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+
+    &-cell {
+        display: flex;
+        align-items: flex-end;
+    }
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #333;
+    padding: 5px 0;
+    transition: 1.5s;
+    &:hover {
+        background-color: #eee;
+    }
+}
+
+.name {
+    width: 15%;
+}
+
+.description {
+    width: 30%;
+}
+
+.сreator {
+    width: 20%;
+}
+
+.status {
+    width: 20%;
+}
+
+.view {
+    width: 15%;
+}
+
+.mark-author {
+    width: 20%;
+}
+
+.mark {
+    width: 20%;
+}
+
+.comment {
+    width: 45%;
+}
+
+.table-points {
+    margin-bottom: 30px;
+}
+
+.map-container {
+    position: relative;
+}
+
+.reset {
+    height: 30px;
+    width: 75px;
+    background-color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+    opacity: .2;
+    transition: .2s;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    z-index: 1000;
+
+    &:hover {
+        opacity: 1;
+    }
+}

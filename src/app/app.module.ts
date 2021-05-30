@@ -13,7 +13,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

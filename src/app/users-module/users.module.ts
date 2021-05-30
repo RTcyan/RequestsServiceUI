@@ -2,9 +2,13 @@ import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'app/shared-module/shared.module';
-import { routes } from './admin.routing';
+import { UserViewComponent } from './components/user-view/user-view.component';
+import { UsersListComponent } from './components/users-list/users-list.component';
+import { routes } from './users.routing';
 
 const COMPONENTS = [
+  UsersListComponent,
+  UserViewComponent,
 ]
 
 @NgModule({
@@ -25,5 +29,5 @@ const COMPONENTS = [
     RouterModule,
   ]
 })
-export class RequestsModule {
+export class UsersModule {
 }

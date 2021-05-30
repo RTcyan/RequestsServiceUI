@@ -1,10 +1,8 @@
 export class User {
-
-  public employeeId: string;
-
-  public userId: string;
-
-  public fullName: string;
-
-  public email: string;
+  id: number;
+  login: string;
+  name: string;
+  surname: string;
+  path_to_img: string;
+  isAdmin: boolean;
 }

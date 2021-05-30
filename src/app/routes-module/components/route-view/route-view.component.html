@@ -1,0 +1,123 @@
+<div class="content">
+    <div class="information">
+        <div class="name">
+            <h3>
+                Название:
+            </h3>
+            <div class="value">
+                {{selectedRoute.name}}
+            </div>
+        </div>
+        <div class="descr">
+            <h3>
+                Описание:
+            </h3>
+            <div class="value">
+                {{selectedRoute.description}}
+            </div>
+        </div>
+        <div class="status">
+            <h3>
+                Статус:
+            </h3>
+            <div class="value">
+                {{ selectedRoute.isHide ? 'Скрыт' : 'Доступен'}}
+            </div>
+        </div>
+        <div class="rating">
+            <h3>
+                Средний рейтинг:
+            </h3>
+            <div class="value">
+                {{ getAvarageRating(selectedRoute)}}
+            </div>
+        </div>
+        <div class="author">
+            <h3>
+                Автор:
+            </h3>
+            <div class="value">
+                {{selectedRoute.creator.surname + ' ' + selectedRoute.creator.name}}
+            </div>
+        </div>
+        <button [color]="!selectedRoute.isHide ? 'warn' : 'primary'" mat-stroked-button (click)="onHideClick()">{{selectedRoute.isHide ? 'Сделать доступным' : 'Скрыть'}}</button>
+    </div>
+    <div class="map-container">
+        <app-map class="map" [height]="500" [width]="500">
+        </app-map>
+        <div class="reset" (click)="omMapResetClick()">Сбросить</div>
+    </div>
+</div>
+<h2>Точки маршрута</h2>
+<div class="table-points">
+    <div class="header">
+        <div class="header-cell name">
+            Название
+        </div>
+        <div class="header-cell description">
+            Описание
+        </div>
+        <div class="header-cell сreator">
+            Ширина
+        </div>
+        <div class="header-cell status">
+            Лонгота
+        </div>
+        <div class="header-cell view">
+
+        </div>
+    </div>
+    <div class="table-content">
+        <div class="row" *ngFor="let point of selectedRoute.points">
+            <div class="row-cell name">
+                {{ point.name }}
+            </div>
+            <div class="row-cell description">
+                {{ point.description}}
+            </div>
+            <div class="row-cell сreator">
+                {{ point.latLng.lat }}
+            </div>
+            <div class="row-cell status">
+                {{ point.latLng.lng }}
+            </div>
+            <div class="row-cell view">
+                <button mat-raised-button (click)="onViewClick(point)">Просмотр</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h2>Оценки маршрута</h2>
+<div class="table-mark">
+    <div class="header">
+        <div class="header-cell mark-author">
+            Автор
+        </div>
+        <div class="header-cell mark">
+            Оценка
+        </div>
+        <div class="header-cell comment">
+            Комментарий
+        </div>
+        <div class="header-cell view">
+
+        </div>
+    </div>
+    <div class="table-content">
+        <div class="row" *ngFor="let rating of selectedRoute.ratings">
+            <div class="row-cell mark-author">
+                {{rating.user.surname + ' ' + rating.user.name}}
+            </div>
+            <div class="row-cell mark">
+                {{ rating.mark}}
+            </div>
+            <div class="row-cell comment">
+                {{ rating.comment}}
+            </div>
+            <div class="row-cell view">
+                <button mat-raised-button [routerLink]="['../../users', rating.user.id]">Просмотр пользователя</button>
+            </div>
+        </div>
+    </div>
+</div>

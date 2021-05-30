@@ -1,0 +1,62 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+
+    &-cell {
+        display: flex;
+        align-items: flex-end;
+    }
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #333;
+    padding: 5px 0;
+    transition: 1.5s;
+    &:hover {
+        background-color: #eee;
+    }
+}
+
+.name {
+    width: 15%;
+}
+
+.description {
+    width: 45%;
+}
+
+.сreator {
+    width: 15%;
+}
+
+.status {
+    width: 10%;
+}
+
+.rating {
+    width: 10%;
+}
+
+.view {
+    width: 15%;
+}
+
+.mark-author {
+    width: 20%;
+}
+
+.mark {
+    width: 20%;
+}
+
+.comment {
+    width: 45%;
+}
+
+.table-routes {
+    margin-bottom: 30px;
+}

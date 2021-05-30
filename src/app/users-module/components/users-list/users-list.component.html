@@ -1,0 +1,30 @@
+<div class="header">
+    <div class="header-cell login">
+        Логин
+    </div>
+    <div class="header-cell name">
+        Имя
+    </div>
+    <div class="header-cell surname">
+        Фамилия
+    </div>
+    <div class="header-cell view">
+
+    </div>
+</div>
+<div class="content">
+    <div class="row" *ngFor="let user of users">
+        <div class="row-cell login">
+            {{ user.login }}
+        </div>
+        <div class="row-cell name">
+            {{ user.name}}
+        </div>
+        <div class="row-cell surname">
+            {{ user.surname }}
+        </div>
+        <div class="row-cell view">
+            <button mat-raised-button [routerLink]="user.id">Просмотреть</button>
+        </div>
+    </div>
+</div>

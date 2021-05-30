@@ -1,0 +1,42 @@
+<div class="header">
+    <div class="header-cell name">
+        Название
+    </div>
+    <div class="header-cell description">
+        Описание
+    </div>
+    <div class="header-cell сreator">
+        Создатель
+    </div>
+    <div class="header-cell status">
+        Статус
+    </div>
+    <div class="header-cell rating">
+        Рейтинг
+    </div>
+    <div class="header-cell view">
+
+    </div>
+</div>
+<div class="content">
+    <div class="row" *ngFor="let route of routes">
+        <div class="row-cell name">
+            {{ route.name }}
+        </div>
+        <div class="row-cell description">
+            {{ route.description}}
+        </div>
+        <div class="row-cell сreator">
+            {{ route.creator.surname + ' ' + route.creator.name }}
+        </div>
+        <div class="row-cell status">
+            {{ route.isHide ? 'Скрыт' : 'Доступен'}}
+        </div>
+        <div class="row-cell rating">
+            {{ getAvarageRating(route) }}
+        </div>
+        <div class="row-cell view">
+            <button mat-raised-button [routerLink]="[route.id]">Просмотреть</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,38 @@
+.header {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+
+    &-cell {
+        display: flex;
+        align-items: flex-end;
+    }
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 1px solid #333;
+    padding: 5px 0;
+    transition: 1.5s;
+    &:hover {
+        background-color: #eee;
+    }
+}
+
+.login {
+    width: 25%;
+}
+
+.name {
+    width: 25%;
+}
+
+.surname {
+    width: 25%;
+}
+
+.view {
+    width: 25%;
+}
