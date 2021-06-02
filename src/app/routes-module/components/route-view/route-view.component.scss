@@ -47,7 +47,7 @@ h3 {
 }
 
 .description {
-    width: 30%;
+    width: 25%;
 }
 
 .сreator {
@@ -58,8 +58,12 @@ h3 {
     width: 20%;
 }
 
+.row-cell {
+    word-break: break-word;
+}
+
 .view {
-    width: 15%;
+    width: 10%;
 }
 
 .mark-author {
@@ -98,5 +102,16 @@ h3 {
 
     &:hover {
         opacity: 1;
+    }
+}
+
+.form {
+    &-container {
+        display: flex;
+        flex-direction: column;
+    }
+    &-buttons {
+        display: flex;
+        justify-content: space-between;
     }
 }

@@ -40,7 +40,12 @@
                 {{selectedRoute.creator.surname + ' ' + selectedRoute.creator.name}}
             </div>
         </div>
-        <button [color]="!selectedRoute.isHide ? 'warn' : 'primary'" mat-stroked-button (click)="onHideClick()">{{selectedRoute.isHide ? 'Сделать доступным' : 'Скрыть'}}</button>
+        <div>
+            <button [color]="!selectedRoute.isHide ? 'warn' : 'primary'" mat-stroked-button (click)="onHideClick()">{{selectedRoute.isHide ? 'Сделать доступным' : 'Скрыть'}}</button>
+        </div>
+        <div>
+            <button mat-raised-button (click)="onRouteUpdateClick()">Редактировать</button>
+        </div>
     </div>
     <div class="map-container">
         <app-map class="map" [height]="500" [width]="500">
@@ -58,10 +63,13 @@
             Описание
         </div>
         <div class="header-cell сreator">
-            Ширина
+            Широтаа
         </div>
         <div class="header-cell status">
-            Лонгота
+            Долгота
+        </div>
+        <div class="header-cell view">
+
         </div>
         <div class="header-cell view">
 
@@ -83,6 +91,9 @@
             </div>
             <div class="row-cell view">
                 <button mat-raised-button (click)="onViewClick(point)">Просмотр</button>
+            </div>
+            <div class="row-cell view">
+                <button mat-raised-button (click)="onPointUpdateClick(point)">Редактирование</button>
             </div>
         </div>
     </div>
@@ -121,3 +132,22 @@
         </div>
     </div>
 </div>
+
+<ng-template #routeUpdateDialogContent>
+    <form [formGroup]="form">
+        <div class="form-container">
+            <mat-form-field>
+                <mat-label>Название марщрута</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+            <mat-form-field>
+                <mat-label>Описание маршрута</mat-label>
+                <textarea matInput formControlName="description"></textarea>
+            </mat-form-field>
+        </div>
+    </form>
+    <div class="form-buttons">
+        <button mat-raised-button (click)="onCloseClick()">Отменить</button>
+        <button mat-raised-button (click)="onAcceptClick()">Подтвердить</button>
+    </div>
+</ng-template>

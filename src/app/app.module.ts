@@ -10,6 +10,7 @@ import { appRoutes } from './app.routing';
 import { SharedModule } from './shared-module/shared.module';
 import { SecurityModule } from './security-module/security.module';
 import { NgxPermissionsModule } from 'ngx-permissions';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { NgxPermissionsModule } from 'ngx-permissions';
     LayoutModule,
     SharedModule,
     SecurityModule,
+    ReactiveFormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
